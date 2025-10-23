@@ -27,6 +27,7 @@ to achieve more expressive and efficient hyperspectral feature modeling.
 Please refer to the **Data Preparation** section of  
 👉 [**MambaHSI (original repository)**](https://github.com/li-yapeng/MambaHSI)  
 for dataset downloading and preprocessing instructions.
+
 ---
 ### 🧱 Dependencies
 
