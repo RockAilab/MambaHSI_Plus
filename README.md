@@ -43,9 +43,9 @@ for dataset downloading and preprocessing instructions.
 
 To train **MambaHSI+**, run the following command:
 
-```bash```
+```bash
 CUDA_VISIBLE_DEVICES=<gpu_id> python train_MambaHSI_Plus.py
-
+```
 ---
 ### 📊 Citation
 
@@ -59,7 +59,6 @@ If this work is useful in your research, please cite:
   year={2025},
   volume={63},
   pages={1-14},
-  keywords={Computational modeling; Computer architecture; Transformers; Feature extraction; Trajectory; Hyperspectral imaging; Image classification; Context modeling; Accuracy; Computational efficiency; Bidirectional propagation; hyperspectral image (HSI) classification; mamba architecture; spectral trajectory learning (STL); state-space models (SSMs)},
   doi={10.1109/TGRS.2025.3576656}
 }
 ```
@@ -74,8 +73,7 @@ This work is based on and inspired by the excellent prior research:
   journal={IEEE Transactions on Geoscience and Remote Sensing}, 
   title={MambaHSI: Spatial-Spectral Mamba for Hyperspectral Image Classification}, 
   year={2024}, 
-  pages={1-16}, 
-  keywords={Hyperspectral Image Classification; Mamba; State Space Models; Transformer}, 
+  pages={1-16},  
   doi={10.1109/TGRS.2024.3430985}
 }
 ```
