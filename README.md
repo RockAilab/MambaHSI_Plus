@@ -8,10 +8,6 @@
 **MambaHSI_Plus** is the **V2 version** of our previous **MambaHSI+** framework.  
 This version **simplifies** the V1 architecture and achieves **better classification accuracy** and **higher computational efficiency**.
 
-Built upon the foundation of [**MambaHSI (Li et al., TGRS 2024)**](https://github.com/li-yapeng/MambaHSI),  
-MambaHSI+ introduces **multidirectional state propagation** and **spectral trajectory learning (STL)**  
-to achieve more expressive and efficient hyperspectral feature modeling.
-
 ---
 
 ### 🚀 Highlights
