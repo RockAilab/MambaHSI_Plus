@@ -1,43 +1,62 @@
-🛰️ MambaHSI+
-Multidirectional State Propagation for Efficient Hyperspectral Image Classification
-📘 Overview
+# 🛰️ MambaHSI_Plus  
+## MambaHSI+: Multidirectional State Propagation for Efficient Hyperspectral Image Classification
 
-MambaHSI+ is the V2 version of our previous MambaHSI+ framework.
-This version simplifies the original design while achieving better classification performance and higher computational efficiency.
+---
 
-The project builds upon the foundation of MambaHSI (Li et al., TGRS 2024)
-, introducing multidirectional state propagation and spectral trajectory learning (STL) for more expressive and efficient hyperspectral feature modeling.
+### 📘 Overview
 
-🚀 Highlights
+**MambaHSI_Plus** is the **V2 version** of our previous **MambaHSI+** framework.  
+This version **simplifies** the V1 architecture and achieves **better classification accuracy** and **higher computational efficiency**.
 
-✅ Simplified architecture (cleaner and faster than V1)
+Built upon the foundation of [**MambaHSI (Li et al., TGRS 2024)**](https://github.com/li-yapeng/MambaHSI),  
+MambaHSI+ introduces **multidirectional state propagation** and **spectral trajectory learning (STL)**  
+to achieve more expressive and efficient hyperspectral feature modeling.
 
-🔁 Multidirectional state propagation for enhanced spatial–spectral dependency modeling
+---
 
-⚡ Significantly improved classification accuracy and efficiency
+### 🚀 Highlights
 
-🧠 Implemented using mamba-ssm==2.2.2
+- ✅ **Simplified architecture:** cleaner, faster, and more efficient than V1  
+- 🔁 **Multidirectional state propagation:** enhances spatial–spectral dependency modeling  
+- ⚡ **Improved classification accuracy and efficiency**  
+- 🧠 **Implemented with:** `mamba-ssm==2.2.2`
 
-🧩 Training
-# Train MambaHSI+
+---
+
+### 🧩 Training
+
+To train **MambaHSI+**, run the following command:
+
+```bash
 CUDA_VISIBLE_DEVICES=<gpu_id> python train_MambaHSI_Plus.py
 
-💾 Dataset Preparation
+### 💾 Dataset Preparation
 
-Please refer to the Data Preparation section of
-👉 MambaHSI (original repository)
+Please refer to the **Data Preparation** section of  
+👉 [**MambaHSI (original repository)**](https://github.com/li-yapeng/MambaHSI)  
+for dataset downloading and preprocessing instructions.
 
-🧱 Dependencies
-Library	Version	Description
-Python	≥3.9	Core language
-PyTorch	≥1.12	Deep learning framework
-mamba-ssm	2.2.2	State-space model implementation
-NumPy, SciPy, scikit-learn	Latest	Data preprocessing and evaluation
+---
 
-📊 Citation
+### 🧱 Dependencies
 
-If you find this repository helpful in your research, please cite:
+| Library | Version | Description |
+|----------|----------|-------------|
+| Python | ≥ 3.9 | Core language |
+| PyTorch | ≥ 1.12 | Deep learning framework |
+| mamba-ssm | 2.2.2 | State-space model implementation |
+| NumPy / SciPy / scikit-learn | Latest | Preprocessing & evaluation |
 
+Install dependencies:
+```bash
+pip install -r requirements.txt
+
+
+### 📊 Citation
+
+If this work is useful in your research, please cite:
+
+```bibtex
 @ARTICLE{11023867, 
   author={Wang, Yunbiao and Liu, Lupeng and Xiao, Jun and Yu, Dongbo and Tao, Ye and Zhang, Wenniu},
   journal={IEEE Transactions on Geoscience and Remote Sensing}, 
@@ -49,19 +68,18 @@ If you find this repository helpful in your research, please cite:
   doi={10.1109/TGRS.2025.3576656}
 }
 
-🙏 Acknowledgment
+### 🙏 Acknowledgment
 
-This work is based on and inspired by the excellent prior work:
+This work is based on and inspired by the excellent prior research:
 
-@ARTICLE{MambaHSI_TGRS24,
-  author={Li, Yapeng and Luo, Yong and Zhang, Lefei and Wang, Zengmao and Du, Bo},
+```bibtex
+@ARTICLE{MambaHSI_TGRS24, 
+  author={Li, Yapeng and Luo, Yong and Zhang, Lefei and Wang, Zengmao and Du, Bo}, 
   journal={IEEE Transactions on Geoscience and Remote Sensing}, 
   title={MambaHSI: Spatial-Spectral Mamba for Hyperspectral Image Classification}, 
-  year={2024},
-  pages={1-16},
-  keywords={Hyperspectral Image Classification; Mamba; State Space Models; Transformer},
+  year={2024}, 
+  pages={1-16}, 
+  keywords={Hyperspectral Image Classification; Mamba; State Space Models; Transformer}, 
   doi={10.1109/TGRS.2024.3430985}
 }
-
-
 We sincerely thank the authors of MambaHSI for their open-source contribution, which provided the foundation for this work.
