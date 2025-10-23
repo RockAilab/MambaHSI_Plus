@@ -22,22 +22,12 @@ to achieve more expressive and efficient hyperspectral feature modeling.
 - 🧠 **Implemented with:** `mamba-ssm==2.2.2`
 
 ---
-
-### 🧩 Training
-
-To train **MambaHSI+**, run the following command:
-
-```bash
-CUDA_VISIBLE_DEVICES=<gpu_id> python train_MambaHSI_Plus.py
-
 ### 💾 Dataset Preparation
 
 Please refer to the **Data Preparation** section of  
 👉 [**MambaHSI (original repository)**](https://github.com/li-yapeng/MambaHSI)  
 for dataset downloading and preprocessing instructions.
-
 ---
-
 ### 🧱 Dependencies
 
 | Library | Version | Description |
@@ -47,16 +37,20 @@ for dataset downloading and preprocessing instructions.
 | mamba-ssm | 2.2.2 | State-space model implementation |
 | NumPy / SciPy / scikit-learn | Latest | Preprocessing & evaluation |
 
-Install dependencies:
-```bash
-pip install -r requirements.txt
+---
+### 🧩 Training
 
+To train **MambaHSI+**, run the following command:
 
+```bash```
+CUDA_VISIBLE_DEVICES=<gpu_id> python train_MambaHSI_Plus.py
+
+---
 ### 📊 Citation
 
 If this work is useful in your research, please cite:
 
-```bibtex
+```bibtex```
 @ARTICLE{11023867, 
   author={Wang, Yunbiao and Liu, Lupeng and Xiao, Jun and Yu, Dongbo and Tao, Ye and Zhang, Wenniu},
   journal={IEEE Transactions on Geoscience and Remote Sensing}, 
@@ -68,11 +62,12 @@ If this work is useful in your research, please cite:
   doi={10.1109/TGRS.2025.3576656}
 }
 
+---
 ### 🙏 Acknowledgment
 
 This work is based on and inspired by the excellent prior research:
 
-```bibtex
+```bibtex```
 @ARTICLE{MambaHSI_TGRS24, 
   author={Li, Yapeng and Luo, Yong and Zhang, Lefei and Wang, Zengmao and Du, Bo}, 
   journal={IEEE Transactions on Geoscience and Remote Sensing}, 
