@@ -77,5 +77,6 @@ This work is based on and inspired by the excellent prior research:
   pages={1-16}, 
   keywords={Hyperspectral Image Classification; Mamba; State Space Models; Transformer}, 
   doi={10.1109/TGRS.2024.3430985}
-}```
+}
+```
 We sincerely thank the authors of MambaHSI for their open-source contribution, which provided the foundation for this work.
