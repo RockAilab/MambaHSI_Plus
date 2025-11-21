@@ -1,4 +1,4 @@
-# 🛰️ MambaHSI_Plus  
+# 🛰️ 2025 TGRS MambaHSI_Plus  
 ## MambaHSI+: Multidirectional State Propagation for Efficient Hyperspectral Image Classification
 
 ---
