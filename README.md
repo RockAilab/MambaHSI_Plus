@@ -48,7 +48,7 @@ CUDA_VISIBLE_DEVICES=<gpu_id> python train_MambaHSI_Plus.py
 If this work is useful in your research, please cite:
 
 ```bibtex
-@ARTICLE{11023867, 
+@ARTICLE{Wang_MambaHSI_Plus_TGRS2025, 
   author={Wang, Yunbiao and Liu, Lupeng and Xiao, Jun and Yu, Dongbo and Tao, Ye and Zhang, Wenniu},
   journal={IEEE Transactions on Geoscience and Remote Sensing}, 
   title={MambaHSI+: Multidirectional State Propagation for Efficient Hyperspectral Image Classification}, 
