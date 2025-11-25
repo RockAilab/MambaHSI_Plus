@@ -1,5 +1,5 @@
 # 🛰️ 2025 TGRS MambaHSI_Plus  
-## MambaHSI+: Multidirectional State Propagation for Efficient Hyperspectral Image Classification [**PDF**](https://ieeexplore.ieee.org/document/11023867)
+## MambaHSI+: Multidirectional State Propagation for Efficient Hyperspectral Image Classification [**~PDF~**](https://ieeexplore.ieee.org/document/11023867)
 
 ---
 
@@ -21,7 +21,7 @@ This version **simplifies** the V1 architecture and achieves **better classifica
 ### 💾 Dataset Preparation
 
 Please refer to the **Data Preparation** section of  
-👉 [**MambaHSI (original repository)**](https://github.com/li-yapeng/MambaHSI)  
+👉 [**MambaHSI**](https://github.com/li-yapeng/MambaHSI)  
 for dataset downloading and preprocessing instructions.
 
 ---
