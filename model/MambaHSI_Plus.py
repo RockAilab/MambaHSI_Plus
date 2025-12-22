@@ -21,10 +21,10 @@ class SpeMamba(nn.Module):
         self.group_channel_num = math.ceil(channels / token_num)
         self.channel_num = self.token_num * self.group_channel_num
 
-        # Mamba 分别建模行优先和列优先
-        self.mamba_col = SpeMambaProcessor(group_channel_num=self.group_channel_num)  # 列优先
+        
+        self.mamba_col = SpeMambaProcessor(group_channel_num=self.group_channel_num)
         self.mamba_row = SpeMambaProcessor(group_channel_num=self.group_channel_num)
-        # 加入 ECA 注意力
+        
         self.eca = ECALayer(channel=self.channel_num)
         if self.use_proj:
             self.proj = nn.Sequential(
@@ -45,20 +45,19 @@ class SpeMamba(nn.Module):
         x_pad = self.padding_feature(x)
         # B, C, H, W -> B, H, W, C (row-major)
 
-        # **行优先建模**
+        
         x_row = x_pad.permute(0, 2, 3, 1).contiguous()  # [B, H, W, C]
         x_row = self.mamba_row(x_row.contiguous()).permute(0, 3, 1, 2) # [B, C, H, W]
 
-        # **列优先建模**
+        
         x_col = x_pad.permute(0, 3, 2, 1).contiguous()  # [B, W, H, C]
         x_col = self.mamba_col(x_col.contiguous()).permute(0, 3, 2, 1) # [B, C, H, W]
 
-        # **融合行/列信息**
+        
         if self.use_att:
             weights = self.softmax(self.weights)
             x_recon = x_row * weights[0] + x_col * weights[1]
         else:
-            # 不开注意力就简单相加
             x_recon = x_row + x_col
 
         if self.use_proj:
@@ -81,10 +80,10 @@ class SpaMamba(nn.Module):
         if self.use_att:
             self.weights = nn.Parameter(torch.ones(2) / 2)
             self.softmax = nn.Softmax(dim=0)
-        # Mamba 分别建模行优先和列优先
-        self.mamba_col = SpaMambaProcessor(channels=channels)  # 列优先
+        
+        self.mamba_col = SpaMambaProcessor(channels=channels)  
         self.mamba_row = SpaMambaProcessor(channels=channels)
-        # 同样加 ECA 注意力
+        
         self.eca = ECALayer(channel=channels)
 
         if self.use_proj:
@@ -95,21 +94,21 @@ class SpaMamba(nn.Module):
 
     def forward(self, x):
 
-        # **行优先建模**
+        
         x_row = x.permute(0, 2, 3, 1).contiguous()  # [B, H, W, C]
         x_row = self.mamba_row(x_row.contiguous()).permute(0, 3, 1, 2) # [B, H, W, C]
 
-        # **列优先建模**
+        
         x_col = x.permute(0, 3, 2, 1).contiguous()  # [B, W, H, C]
         x_col = self.mamba_col(x_col.contiguous()).permute(0, 3, 2, 1) # [B, H, W, C]
 
-        # **融合行/列信息**
+        
         if self.use_att:
             weights = self.softmax(self.weights)
             x_recon = x_row * weights[0] + x_col * weights[1]
             # print(weights[0], weights[1])
         else:
-            # 不开注意力就简单相加
+            
             x_recon = x_row + x_col
         
         if self.use_proj:
@@ -164,13 +163,13 @@ class MambaHSI_Plus(nn.Module):
         super(MambaHSI_Plus, self).__init__()
         self.mamba_type = mamba_type
 
-        # 1. 光谱压缩/增强
+        
         self.patch_embedding = nn.Sequential(nn.Conv2d(in_channels=in_channels,out_channels=hidden_dim,kernel_size=1,stride=1,padding=0),
                                              nn.GroupNorm(group_num,hidden_dim),
                                              nn.SiLU())
 
 
-        # 3. Mamba 堆叠
+        
         self.mamba = nn.Sequential(
             BothMamba(channels=hidden_dim, token_num=token_num, use_residual=use_residual, group_num=group_num, use_att=use_att),
             nn.AvgPool2d(kernel_size=2, stride=2),
@@ -179,7 +178,7 @@ class MambaHSI_Plus(nn.Module):
             BothMamba(channels=hidden_dim, token_num=token_num, use_residual=use_residual, group_num=group_num, use_att=use_att),
         )
 
-        # 4. 分类头（保持不变）
+        
         self.cls_head = nn.Sequential(
             nn.Conv2d(in_channels=hidden_dim, out_channels=hidden_dim, kernel_size=3, stride=1, padding=1),
             nn.GroupNorm(group_num, hidden_dim),
@@ -188,10 +187,10 @@ class MambaHSI_Plus(nn.Module):
         )
 
     def forward(self, x):
-        # step1: 压缩光谱
+        
         x = self.patch_embedding(x)
-        # step2: 多尺度卷积
+        
         x = self.mamba(x)
-        # step4: 分类头
+        
         logits = self.cls_head(x)
         return logits
